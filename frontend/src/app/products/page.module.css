@@ -1,0 +1,78 @@
+.page {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.filters {
+  margin-bottom: 3rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.filterList {
+  display: flex;
+  gap: 1rem;
+  min-width: max-content;
+}
+
+.filterButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  background-color: var(--card);
+  color: var(--muted);
+  border: 1px solid var(--border);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.3s ease;
+}
+
+.filterButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: inset 0 0 10px rgba(201, 255, 59, 0.2), 0 0 10px rgba(201, 255, 59, 0.2);
+}
+
+.filterButton.active {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-color: var(--primary);
+  box-shadow: var(--neon-glow);
+}
+
+.productsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .productsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.emptyState {
+  text-align: center;
+  padding: 4rem 0;
+  color: var(--muted);
+  font-size: 1.125rem;
+}

@@ -1,0 +1,63 @@
+.footer {
+  background-color: var(--card);
+  border-top: 1px solid var(--border);
+  padding-top: 4rem;
+  margin-top: auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    grid-template-columns: 1fr 2fr;
+  }
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--foreground);
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.linkGroup h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.linkGroup a {
+  display: block;
+  color: var(--muted);
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.linkGroup a:hover {
+  color: var(--primary);
+}
+
+.bottom {
+  border-top: 1px solid var(--border);
+  padding: 1.5rem 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
