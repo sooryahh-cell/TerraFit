@@ -37,7 +37,7 @@ export default function CheckoutPage() {
     const shippingDetails = Object.fromEntries(formData.entries());
 
     try {
-      const res = await fetch("http://localhost:5000/api/orders", {
+      const res = await fetch("https://terrafit-e169.onrender.com/api/orders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

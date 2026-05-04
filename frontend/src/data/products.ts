@@ -103,7 +103,7 @@ export const mockProducts: Product[] = [
 
 export async function getProducts(): Promise<Product[]> {
   try {
-    const res = await fetch('http://localhost:5000/api/products', { 
+    const res = await fetch('https://terrafit-e169.onrender.com/api/products', { 
       next: { revalidate: 60 } 
     });
     
