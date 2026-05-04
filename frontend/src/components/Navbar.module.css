@@ -135,3 +135,92 @@
   justify-content: center;
   border-radius: 9999px;
 }
+
+.searchContainer {
+  display: none;
+  flex: 1;
+  max-width: 400px;
+  margin: 0 2rem;
+}
+
+@media (min-width: 1024px) {
+  .searchContainer {
+    display: block;
+  }
+}
+
+.searchWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.searchInput {
+  background: none;
+  border: none;
+  color: #fff;
+  width: 100%;
+  padding-left: 2rem;
+  font-size: 0.9rem;
+  font-family: inherit;
+  outline: none;
+  position: relative;
+  z-index: 10;
+}
+
+.searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  transition: all 0.3s;
+}
+
+.searchBorder {
+  position: absolute;
+  inset: -1px;
+  border-radius: 999px;
+  padding: 1px;
+  background: linear-gradient(90deg, var(--primary), #3a7bd5, #bb67ff, var(--primary));
+  background-size: 300% 100%;
+  -webkit-mask: 
+     linear-gradient(#fff 0 0) content-box, 
+     linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.3s;
+  animation: borderRotate 4s linear infinite;
+  pointer-events: none;
+}
+
+.searchWrapper:focus-within {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: transparent;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.searchWrapper:focus-within .searchBorder {
+  opacity: 1;
+}
+
+.searchWrapper:focus-within .searchIcon {
+  color: var(--primary);
+  filter: drop-shadow(0 0 5px var(--primary));
+}
+
+@keyframes borderRotate {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+

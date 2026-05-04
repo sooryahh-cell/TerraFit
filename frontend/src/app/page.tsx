@@ -13,16 +13,16 @@ export default async function Home() {
     <div className={styles.home}>
       {/* Neon Cyber Hero Section */}
       <section className={styles.hero}>
-        <div className={styles.heroImageContainer}>
-          <Image
-            src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2000&auto=format&fit=crop"
-            alt="Terra Fit Cyber Aesthetic"
-            fill
-            className={styles.heroImage}
-            priority
-          />
-          <div className={styles.heroOverlay}></div>
+        <div className={styles.meshContainer}>
+          <div className={styles.mesh1}></div>
+          <div className={styles.mesh2}></div>
+          <div className={styles.mesh3}></div>
+          <div className={styles.mesh4}></div>
         </div>
+        <div className={styles.glassOverlay}></div>
+
+        <div className={styles.heroContentWrapper}>
+          <div className={`container ${styles.heroContent}`}>
 
         {/* Animated neon background orbs */}
         <div className={styles.neonOrb1}></div>
@@ -30,7 +30,6 @@ export default async function Home() {
         <div className={styles.neonOrb3}></div>
         <div className={styles.neonGrid}></div>
 
-        <div className={`container ${styles.heroContent}`}>
           <h1 className={styles.heroTitle}>
             EMBRACE THE <span className={styles.neonText}>GLOW</span>
           </h1>
@@ -46,6 +45,7 @@ export default async function Home() {
             </Link>
           </div>
         </div>
+      </div>
       </section>
 
       {/* Aesthetic Categories Section */}

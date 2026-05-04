@@ -76,3 +76,15 @@
   color: var(--muted);
   font-size: 1.125rem;
 }
+
+.clearSearch {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary);
+  text-decoration: underline;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+

@@ -4,6 +4,12 @@ import "./globals.css";
 import { CartProvider } from "@/context/CartContext";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WaveBackground from "@/components/WaveBackground";
+import FloatingTshirts from "@/components/FloatingTshirts";
+
+
+
+
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -20,9 +26,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
+        <WaveBackground />
+        <FloatingTshirts />
         <CartProvider>
           <Navbar />
-          <main style={{ flex: 1, paddingBottom: "2rem" }}>
+          <main style={{ flex: 1, paddingBottom: "2rem", position: "relative", zIndex: 1 }}>
             {children}
           </main>
           <Footer />

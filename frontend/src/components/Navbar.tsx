@@ -10,6 +10,14 @@ export default function Navbar() {
   const { cartCount } = useCart();
   const router = useRouter();
   const [user, setUser] = useState<{ name: string } | null>(null);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter" && searchQuery.trim()) {
+      router.push(`/products?search=${encodeURIComponent(searchQuery.trim())}`);
+    }
+  };
+
 
   useEffect(() => {
     // Check localStorage for logged-in user on mount
@@ -44,6 +52,22 @@ export default function Navbar() {
         <Link href="/" className={styles.logo}>
           TERRA FIT
         </Link>
+        <div className={styles.searchContainer}>
+          <div className={styles.searchWrapper}>
+            <input 
+              type="text" 
+              placeholder="Search drops..." 
+              className={styles.searchInput}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyDown={handleSearch}
+            />
+            <div className={styles.searchBorder}></div>
+            <svg className={styles.searchIcon} xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+        </div>
         <nav className={styles.navLinks}>
           <Link href="/products?category=Men's" className={styles.link}>MEN&apos;S</Link>
           <Link href="/products?category=Women's" className={styles.link}>WOMEN&apos;S</Link>

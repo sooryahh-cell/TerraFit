@@ -5,16 +5,30 @@ import { getProducts } from "@/data/products";
 import styles from "./page.module.css";
 
 export default async function ProductsPage(
-  props: { searchParams: Promise<{ category?: string }> }
+  props: { searchParams: Promise<{ category?: string; search?: string }> }
 ) {
   const searchParams = await props.searchParams;
   const currentCategory = searchParams.category || "All";
+  const searchQuery = searchParams.search?.toLowerCase() || "";
 
   const allProducts = await getProducts();
-  const filteredProducts =
-    currentCategory === "All"
-      ? allProducts
-      : allProducts.filter((p) => p.category === currentCategory);
+  
+  let filteredProducts = allProducts;
+
+  // Filter by category
+  if (currentCategory !== "All") {
+    filteredProducts = filteredProducts.filter((p) => p.category === currentCategory);
+  }
+
+  // Filter by search query
+  if (searchQuery) {
+    filteredProducts = filteredProducts.filter(
+      (p) => 
+        p.name.toLowerCase().includes(searchQuery) || 
+        p.description.toLowerCase().includes(searchQuery)
+    );
+  }
+
 
   const categories = ["All", "Men's", "Women's"];
 
@@ -46,7 +60,8 @@ export default async function ProductsPage(
         </div>
       ) : (
         <div className={styles.emptyState}>
-          <p>No products found in this category.</p>
+          <p>No drops found for &quot;{searchParams.search || currentCategory}&quot;.</p>
+          <Link href="/products" className={styles.clearSearch}>Clear all filters</Link>
         </div>
       )}
     </div>
